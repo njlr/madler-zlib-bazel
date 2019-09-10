@@ -1,39 +1,16 @@
-alias(
+cc_library(
   name = "zlib",
-  actual = "@buckaroo_madler_zlib//:zlib",
+  includes = [
+    # ".",
+  ],
+  hdrs = glob([
+    "*.h",
+  ]),
+  srcs = glob([
+    "*.c",
+    "*.h",
+  ]),
   visibility = [
     "//visibility:public",
-  ],
-)
-
-zlib = ":zlib"
-
-cc_binary(
-  name = "enough",
-  srcs = [
-    "enough.c",
-  ],
-  deps = [
-    zlib,
-  ],
-)
-
-cc_binary(
-  name = "gun",
-  srcs = [
-    "gun.c",
-  ],
-  deps = [
-    zlib,
-  ],
-)
-
-cc_binary(
-  name = "zran",
-  srcs = [
-    "zran.c",
-  ],
-  deps = [
-    zlib,
   ],
 )
